@@ -1,0 +1,18 @@
+type Query {
+    snippetById(id: ID!): Snippet
+    userInfo: User
+}
+
+type Snippet {
+    id: ID!
+    title: String!
+    language: String
+    code: String
+    createdAt: LocalDateTime
+}
+
+type User {
+    id: ID!
+    username: String!
+    email: String!
+}
