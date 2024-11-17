@@ -1,0 +1,4 @@
+2024-11-07 17:32:49.461293+01:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Tabelle "PROJECTS" nicht gefunden (diese Datenbank ist leer)
+Table "PROJECTS" not found (this database is empty); SQL statement:
+insert into projects (created_at,description,due_at,status,title,id) values (?,?,?,?,?,default) [42104-224]

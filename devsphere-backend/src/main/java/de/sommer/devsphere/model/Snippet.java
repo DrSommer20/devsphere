@@ -1,7 +1,5 @@
 package de.sommer.devsphere.model;
 
-import java.time.LocalDateTime;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,7 +18,7 @@ public class Snippet {
     @Lob // For larger code snippets
     private String code;
     private int userId; // Link to the user who created the snippet
-    private LocalDateTime createdAt;
+    private String createdAt;
 
     public int getId() {
         return id;
@@ -62,11 +60,11 @@ public class Snippet {
         this.userId = userId;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 

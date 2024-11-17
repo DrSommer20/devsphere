@@ -1,6 +1,17 @@
 type Query {
     snippetById(id: ID!): Snippet
+    allProjects: [Project]
+    projectById(id: ID!): Project
     userInfo: User
+}
+
+type Mutation {
+    createProject(title: String!, description: String, kanban: [KanbanInput], dueAt: String): Project
+    updateProject(id: ID!, title: String, description: String, kanban: [KanbanInput], dueAt: String, createdAt: String, status: String): Project
+    deleteProject(id: ID!): Boolean
+    createUser(username: String!, email: String!, password: String!): User
+    updateUser(username: String, email: String, password: String): User
+    deleteUser: Boolean
 }
 
 type Snippet {
@@ -8,11 +19,32 @@ type Snippet {
     title: String!
     language: String
     code: String
-    createdAt: LocalDateTime
+    createdAt: String
+}
+
+type Project {
+    id: ID!
+    title: String
+    description: String
+    kanban: [KanbanItem]
+    dueAt: String
+    createdAt: String
+}
+
+type KanbanItem {
+    id: ID!
+    title: String!
+    state: String
 }
 
 type User {
     id: ID!
     username: String!
     email: String!
+}
+
+input KanbanInput {
+    id: ID
+    title: String!
+    state: String
 }

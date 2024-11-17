@@ -1,62 +1,65 @@
 package de.sommer.devsphere.service.impl;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import de.sommer.devsphere.model.User;
+import de.sommer.devsphere.repository.UserRepository;
 import de.sommer.devsphere.service.api.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
 
-    List<User> userList = new ArrayList<>();
-    BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
     @Override
     public User registerUser(User user) {
-        user.setId(userList.size());
-        userList.add(user);
-        return user;
+        return userRepository.save(user);
     }
 
     @Override
-    public User getUser(int id) {
-        return userList.stream().filter(user -> user.getId() == id).findFirst().orElse(null);
+    public User getUserById(int id) {
+        Optional<User> user = userRepository.findById(id);
+        return user.orElse(null);
     }
 
     @Override
     public boolean deleteUser(int id) {
-        return userList.removeIf(user -> user.getId() == id);
+        if (userRepository.existsById(id)) {
+            userRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 
     @Override
     public boolean updateUser(User user) {
-        for (User u : userList) {
-            if (u.getId() == user.getId()) {
-                u.setUsername(user.getUsername());
-                u.setPassword(user.getPassword());
-                return true;
-            }
+        if (userRepository.existsById(user.getId())) {
+            userRepository.save(user);
+            return true;
         }
         return false;
     }
 
     @Override
     public User getUserByUsername(String username) {
-        return userList.stream().filter(user -> user.getUsername().equals(username)).findFirst().orElse(null);
+        return userRepository.findByUsername(username);
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
 
     @Override
     public boolean isPassword(User user, String password) {
         return passwordEncoder.matches(password, user.getPassword());
     }
-
-    @Override
-    public String encodePassword(String password) {
-        return passwordEncoder.encode(password);
-    }
-    
 }
