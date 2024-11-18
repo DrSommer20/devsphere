@@ -1,17 +1,19 @@
 <mat-toolbar color="primary" class="navbar">
-    <img src="images/logo.png" class="navbar-logo" alt="logo">
-    <span class="navbar-title">DevSphere</span>
-    <span class="navbar-spacer"></span>
-    <nav mat-tab-nav-bar>
-      <a mat-tab-link class="links" routerLink="/dashboard" routerLinkActive #rlaDashboard="routerLinkActive" [active]="rlaDashboard.isActive">Dashboard</a>
-      <a mat-tab-link class="links" routerLink="/snippets" routerLinkActive #rlaSnippets="routerLinkActive" [active]="rlaSnippets.isActive">Snippets</a>
-      <a mat-tab-link class="links" routerLink="/projects" routerLinkActive #rlaProjects="routerLinkActive" [active]="rlaProjects.isActive">Projects</a>
-      <a mat-tab-link class="links" routerLink="/algorithms" routerLinkActive #rlaAlgorithms="routerLinkActive" [active]="rlaAlgorithms.isActive">Algorithms</a>
-      <a mat-tab-link class="links" routerLink="/forum" routerLinkActive #rlaForum="routerLinkActive" [active]="rlaForum.isActive">Forum</a>
-      <a mat-tab-link class="links" routerLink="/resources" routerLinkActive #rlaResources="routerLinkActive" [active]="rlaResources.isActive">Resources</a>
-    </nav>
-  </mat-toolbar>
-  <div class="content">
-    <router-outlet></router-outlet>
-  </div>
-  
+  <img src="images/logo.png" class="navbar-logo" alt="logo">
+  <span class="navbar-title">DevSphere</span>
+  <span class="navbar-spacer"></span>
+  <nav mat-tab-nav-bar>
+    <a mat-tab-link class="links" routerLink="/dashboard" routerLinkActive #rlaDashboard="routerLinkActive" [active]="rlaDashboard.isActive">Dashboard</a>
+    <a mat-tab-link class="links" routerLink="/snippets" routerLinkActive #rlaSnippets="routerLinkActive" [active]="rlaSnippets.isActive">Snippets</a>
+    <a mat-tab-link class="links" routerLink="/projects" routerLinkActive #rlaProjects="routerLinkActive" [active]="rlaProjects.isActive">Projects</a>
+    <a mat-tab-link class="links" routerLink="/algorithms" routerLinkActive #rlaAlgorithms="routerLinkActive" [active]="rlaAlgorithms.isActive">Algorithms</a>
+    <a mat-tab-link class="links" routerLink="/forum" routerLinkActive #rlaForum="routerLinkActive" [active]="rlaForum.isActive">Forum</a>
+    <a mat-tab-link class="links" routerLink="/resources" routerLinkActive #rlaResources="routerLinkActive" [active]="rlaResources.isActive">Resources</a>
+  </nav>
+  <button mat-button class="auth-button login-button" *ngIf="!isLoggedIn" (click)="openLogin()">Login</button>
+  <button mat-button class="auth-button signup-button" *ngIf="!isLoggedIn" (click)="openSignup()">Signup</button>
+  <button mat-button class="auth-button logout-button" *ngIf="isLoggedIn" (click)="logout()">Logout</button>
+</mat-toolbar>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

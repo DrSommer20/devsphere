@@ -1,0 +1,62 @@
+h1 {
+  text-align: center;
+  margin-top: 50px;
+  color: #F39C12; /* Secondary1 */
+}
+
+p {
+  text-align: center;
+  font-size: 1.2em;
+  color: #F1C40F; /* Secondary2 */
+}
+
+.feature-section {
+  margin: 40px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+
+.feature-section h2 {
+  text-align: center;
+  color: #2980B9; /* Accent1 */
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #1B4F72; /* Primary2 */
+  border-radius: 8px;
+}
+
+.feature .material-symbols-outlined {
+  font-size: 1.5em; /* Same size as text */
+  margin-right: 10px; /* Add a little bit of margin */
+  color: #F39C12; /* Secondary1 */
+  line-height: 1; /* Ensure the icon is vertically centered */
+  vertical-align:top; /* Ensure the icon is vertically centered */
+}
+
+.feature h3 {
+  color: #2ECC71; /* Accent2 */
+}
+
+.feature p {
+  color: #FFFFFF; /* Font Color */
+}
+
+.cta-section {
+  text-align: center;
+  margin: 40px 0;
+}
+
+.cta-button {
+  margin: 0 10px;
+  background-color: #2980B9; /* Accent1 */
+  color: #FFFFFF; /* Font Color */
+}
+
+.cta-button:hover {
+  background-color: #2ECC71; /* Accent2 */
+}

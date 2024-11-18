@@ -1,42 +1,141 @@
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #212121;
-    color: #ffffff;
-  }
-  
-  .navbar-title {
-    font-size: 1.5em;
-    font-weight: bold;
-    margin-left: 16px;
-  }
-  
-  .navbar-spacer {
-    flex: 1 1 auto;
-  }
-  
-  .mat-tab-nav-bar {
-    background: linear-gradient(90deg, #2196f3, #21cbf3);
-    border-radius: 4px;
-  }
-  
-  .links {
-    color: #ffffff !important;
-    font-weight: 500;
-    padding: 16px;
-  }
-  
-  .links[active] {
-    border-bottom: 2px solid #ffffff !important;
-  }
-  
-  .content {
-    padding: 16px;
-  }
+/* General Styles */
+body {
+  background-color: #17202A; /* Background Color */
+  color: #FFFFFF; /* Font Color */
+  font-family: 'Roboto', sans-serif;
+}
 
-  .navbar-logo {
-    height: 100%;
-    max-height: 50px; /* Adjust the max-height as needed */
-  }
+/* Navbar Styles */
+.navbar {
+  width: 100%;
+  background-color: #0A3D62; /* Primary1 */
+  color: #FFFFFF; /* Font Color */
+}
+
+.navbar-title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-left: 16px;
+}
+
+.navbar-spacer {
+  flex: 1 1 auto;
+}
+
+.navbar-logo {
+  height: 100%;
+  max-height: 50px; /* Adjust the max-height as needed */
+}
+
+/* Tab Navigation Styles */
+.mat-tab-nav-bar {
+  background: linear-gradient(90deg, #0A3D62, #1B4F72); /* Primary1 to Primary2 */
+  border-radius: 4px;
+}
+
+.links {
+  color: #FFFFFF !important; /* Font Color */
+  font-weight: 500;
+  padding: 16px;
+}
+
+.links[active] {
+  border-bottom: 2px solid #F39C12 !important; /* Secondary1 */
+}
+
+/* Button Styles */
+.auth-button {
+  margin-left: 8px;
+}
+
+.login-button {
   
+  background-color: #2980B9; /* Accent1 */
+  color: #FFFFFF; /* Font Color */
+}
+
+.login-button:hover {
+  background-color: #2ECC71; /* Accent2 */
+}
+
+.signup-button {
+  background-color: #F39C12; /* Secondary1 */
+  color: #FFFFFF; /* Font Color */
+}
+
+.signup-button:hover {
+  background-color: #F1C40F; /* Secondary2 */
+}
+
+.logout-button {
+  background-color: #E74C3C; /* Red */
+  color: #FFFFFF; /* Font Color */
+}
+
+.logout-button:hover {
+  background-color: #C0392B; /* Darker Red */
+}
+
+/* Content Styles */
+.content {
+  padding: 16px;
+}
+
+/* Button Styles */
+button.mat-button {
+  background-color: #2980B9; /* Accent1 */
+  color: #FFFFFF; /* Font Color */
+}
+
+button.mat-button:hover {
+  background-color: #2ECC71; /* Accent2 */
+}
+
+/* Kanban Board Styles */
+.kanban-board {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px;
+}
+
+.kanban-column {
+  width: 30%;
+  border: 1px solid #444;
+  border-radius: 15px;
+}
+
+.kanban-column-header {
+  background-color: #0A3D62; /* Primary1 */
+  padding: 10px;
+  text-align: center;
+  font-weight: bolder;
+  color: #FFFFFF; /* Font Color */
+}
+
+.kanban-tasks {
+  padding: 10px;
+}
+
+.kanban-task {
+  margin-bottom: 10px;
+  margin-right: 10px;
+  min-width: 10vw;
+  padding: 10px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: #1B4F72; /* Primary2 */
+  color: #FFFFFF; /* Font Color */
+}
+
+/* Project Card Styles */
+.project-card {
+  margin: 10px;
+  cursor: pointer;
+  color: #FFFFFF; /* Font Color */
+  background-color: #0A3D62; /* Primary1 */
+}
+
+.project-icon {
+  background: url('/assets/project-icon.png') no-repeat center center;
+  background-size: cover;
+}
