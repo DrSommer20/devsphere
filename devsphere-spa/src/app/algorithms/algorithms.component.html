@@ -1,1 +1,37 @@
-<p>algorithms works!</p>
+<div class="container">
+    <h2>Sorting Algorithm</h2>
+    <mat-chip-listbox  id="dataSortAlgoToggle" selectable>
+        <mat-chip-option *ngFor="let chip of dataSortAlgos; let i = index" [value]="chip.value" (click)="onSortAlgoChange(chip.value)" [selected]="i === 0">
+            {{chip.viewValue}}
+        </mat-chip-option>
+    </mat-chip-listbox >
+</div>
+
+<div class="explanation">
+    <p>{{ explanation }}</p>
+</div>
+
+
+<div class="container-chart">
+    <div echarts id="algo-chart" [options]="options"></div>
+</div>
+
+<div class="container">
+    <h4>Data Style</h4>
+    <mat-chip-listbox  id="dataSortStyleToggle" selectable>
+        <mat-chip-option *ngFor="let chip of dataSortStyles; let i = index" [value]="chip.value" (click)="onDataStyleChange(chip.value)" [selected]="i === 0">
+            {{chip.viewValue}}
+        </mat-chip-option>
+    </mat-chip-listbox >
+</div>
+
+<div class="counters">
+    <p>Array Accesses: {{ arrayAccessCount }}</p>
+    <p>Comparisons: {{ comparisonCount }}</p>
+  </div>
+  
+<hr>
+<div class="container-flex">
+    <button mat-button class="sort-btn" (click)="onSortButtonClick()">Sort</button>
+    <button mat-button class="reset-btn" (click)="onResetButtonClick()">Reset</button>
+</div>
